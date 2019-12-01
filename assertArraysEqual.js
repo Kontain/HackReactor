@@ -45,6 +45,9 @@ function assertArraysEqual(expected, actual, testName) {
 var mapResult1 = map([1,2,3], addOne);
 var mapExpected1 = [2,3,4]
 
-assertArraysEqual(mapExpected1, mapResult1, 'Map Funtion Test')
+assertArraysEqual(mapExpected1, mapResult1, 'Map Function Test')
 
 var cubeResult1 = cubeAll([1, 2, 3])
+var cubeExpected1 = cubeAll([1, 8, 27])
+
+assertArraysEqual(cubeExpected1, cubeResult1. "CubeAll Function Test")
