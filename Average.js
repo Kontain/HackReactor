@@ -21,11 +21,13 @@ function sum(numbers) {
   
   var result = 0
   
-  if (onlyNumbers === true) {
+  if (onlyNumbers === true && numbers.length > 0) {
       for (var i = 0; i < numbers.length; i++) {
       result += numbers[i];
       }
-  }
+    } else {
+      result += numbers;
+    }
   
   return result
 }
@@ -45,6 +47,14 @@ var sumExpected = 15
 var sumResult = sum(numArray)
 
 assertEquals(sumExpected, sumResult, 'Testing sum function returns the sum of an array')
+
+//array is only 1 number
+var oneArray = 9
+
+var sumOneExpected = 9
+var sumOneResult = sum(oneArray)
+
+assertEquals(sumOneExpected, sumOneResult, 'Testing sum function can handle one number')
 
 //array has string data type
 var strArray = [1, 2, 'Omar', 4, 5]
