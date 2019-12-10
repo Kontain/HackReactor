@@ -48,28 +48,32 @@ function decorateClassListWithAges(classList) {
 // ASSERTION FUNCTION(S) TO BE USED
 function assertArrayEquals(expected, result, testName) {
 	var sameLength = expected.length === result.length;
-	var sameValues = true;
 
-	for (i in result) {
-		if (result[i]['name'] !== expected[i]['name']) {
-			sameValues = false;
-			break
+	if (Array.isArray(result)) {
+		for (i in result) {
+			if (result[i]['name'] !== expected[i]['name']) {
+				console.log('FAILED: Name is dissimilar at index ' + i)
+				break
+			}
+
+			if(assertWithinRange(10, 11, result) === false) {
+				console.log('FAILED: Age is not within range at index ' + i + '  ' + testName)
+				break
+			}
 		}
-	}
-
-	if(sameLength && sameValues) {
-		console.log('passed')
+	} else if (expected !== result) {
+		console.log('FAILED [' + testName + '] Expected ' + expected + ' but got ' + result)
 	} else {
-		console.log('Failed [' + testName + '] Expected ' + expected + ' but got ' + result)
+		console.log('passed');
 	}
 }
 
-function assertWithinRange(low, high, result, testName) {
+function assertWithinRange(low, high, result) {
 	for (i in result) {
 		if (result[i]['age'] >= low && result[i]['age'] <= high) {
-			console.log('passed');
+			return true;
 		} else {
-			console.log('FAILED [' + testName + '] \"' + result + '\" not within ' + low + ' to ' + high);
+			return false;
 		}
 	}
 }
@@ -80,13 +84,12 @@ var isStringExpected = [{'name': 'Omar', 'age': 11}]
 var isStringResult = decorateClassListWithAges(isString);
 
 assertArrayEquals(isStringExpected, isStringResult, 'Handling String');
-assertWithinRange(10, 11, isStringResult, 'Appropriately gives age within range for String')
 //is not an array and element is number
 var isNum = 9
 var isNumExpected = 'Was not passed a list of names.'
 var isNumResult = decorateClassListWithAges(isNum);
 
-assertArrayEquals(isNumExpected, isNumResult, 'Argument given is boolean');
+assertArrayEquals(isNumExpected, isNumResult, 'Argument given is Number');
 //is not an array and element is boolean
 var isBoo = true
 var isBooExpected = 'Was not passed a list of names.'
