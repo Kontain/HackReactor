@@ -5,7 +5,7 @@ function isIsogram(text) {
     var isoSet = new Set([])
   // add each char to a set
   for (i in text) {
-      isoSet.add(text[i])
+      isoSet.add(text[i].toLowerCase())
   }
   /*console.log(isoSet)
   console.log(isoSet.size)
@@ -31,7 +31,7 @@ function assertEquals(expected, result, testName) {
     }
 }
 // TESTS CASES
-var emptyStr = ' '
+var emptyStr = ''
 var emptyStrExpected = true;
 var emptyStrResult = isIsogram(emptyStr)
 
@@ -48,3 +48,9 @@ var iso2Expected = false;
 var iso2Result = isIsogram(iso2);
 
 assertEquals(iso2Expected, iso2Result, 'Repeating Letters');
+
+var iso3 = 'bB'
+var iso3Expected = false;
+var iso3Result = isIsogram(iso3);
+
+assertEquals(iso3Expected, iso3Result, 'Repeating Letters');
