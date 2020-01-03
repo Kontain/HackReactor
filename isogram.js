@@ -7,19 +7,8 @@ function isIsogram(text) {
   for (i in text) {
       isoSet.add(text[i].toLowerCase())
   }
-  /*console.log(isoSet)
-  console.log(isoSet.size)
-  console.log(text.length)*/
   
-  if (isoSet.size === text.length) {
-      return true;
-  } else {
-      return false;
-  }
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
-  // note: a set drops dup values
-  // thus, to see if all the chars were unique,
-  // check length of text and the size of the set
+  return isoSet.size === text.length;
 }
 
 // ASSERTION FUNCTION(S) TO BE USED
