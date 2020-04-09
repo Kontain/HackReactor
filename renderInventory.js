@@ -2,10 +2,10 @@ function renderInventory(inventory) {
   var renderedInventory = ''
 
   for (var i = 0; i < inventory.length; i++) {
-    var designer = inventory[i]['name'];
+    var designerObject = inventory[i];
 
-    for (var j = 0; j < inventory[i]['shoes'].length; j++) {
-       renderedInventory += designer + ', ' + inventory[i]['shoes'][j]['name'] + ', ' + inventory[i]['shoes'][j]['price'] + '\n';
+    for (var j = 0; j < designerObject['shoes'].length; j++) {
+       renderedInventory += designerObject['name'] + ', ' + designerObject['shoes'][j]['name'] + ', ' + designerObject['shoes'][j]['price'] + '\n';
     }
   }
   return renderedInventory;

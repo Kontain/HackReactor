@@ -29,11 +29,7 @@ function laceShoesIndex(inventory) {
 	  //object should have nameWords (a list of the words in the name that lace was found) and targetWordIndex (the index that lace is found in the list)
 
 function shoeContainsLace(shoe) {
-	if (shoe['name'].indexOf('lace') !== -1) {
-		return true
-	} else {
-		return false
-	}
+	return (shoe['name'].indexOf('lace') !== -1)
 }
 
 function getLaceIndex(inventoryNameArray) {
